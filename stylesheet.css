@@ -1,0 +1,175 @@
+body {
+  margin: 0px;/*Reset så nav når helt ud til siden*/
+  background-color: #80aaff;
+}
+
+header, section section, footer {
+  background-color: whitesmoke;
+  padding: 0 20px 0;/*top-siderne-bund. Giv lidt space til siderne i tekst*/
+}
+
+header, footer {
+  text-align: center;
+}
+
+section section {
+  padding-bottom: 100px;/*giv noget whitespace til næste element*/
+}
+
+img {
+  width: 400px;
+  box-shadow: 5px 5px 5px 5px #999;
+}
+
+blockquote {
+  font-size: 0.75em;
+  margin-top: 5px;
+}
+
+nav {
+  overflow: hidden;
+  bottom: 0;/*Placere nav i bunden*/
+  position: fixed;/*Placere denne i bunden af skærmen og ikke i bunden af siden*/
+  text-align: center;/*Placere menupunkterne i midten af siden*/
+  background-color: #80aaff;
+  width: 100%;/*Får den til at fylde fra side til side*/
+  padding: 4px;/*Giv lidt plads til links i menuen*/
+}
+
+nav a {
+  color: black;
+  padding: 2px;/*Giver lidt space mellem linkene*/
+}
+
+nav a:hover, a:focus {
+  background: black;
+  color: whitesmoke;
+}
+
+a {
+  text-decoration: none;/*Fjerner dekorationen på links*/
+  color: black;
+}
+
+/*--------------------------------------grid-area tildelt-----------------------*/
+header {
+  grid-area: header;
+}
+
+#_et {
+  grid-area: et;
+}
+
+#_to {
+  grid-area: to;
+}
+
+#_tre {
+  grid-area: tre;
+}
+
+#_fire {
+  grid-area: fire;
+}
+
+#_fem {
+  grid-area: fem;
+}
+
+#_seks {
+  grid-area: seks;
+}
+
+#_kilder {
+  grid-area: kilder;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/*--------------------------------------Felter stylet---------------------------*/
+header, #_et, #_to, #_tre, #_fire, #_fem, #_seks, #_kilder, footer {
+  border: solid;
+  margin: 5px;
+}
+
+header {
+  margin-top: 5px;/*Gør lidt plads i toppen*/
+  }
+
+footer {
+  margin-bottom: 50px;/*Gør plads til menu i bunden*/
+}
+
+/*--------------------------------------Grid bygget-----------------------------*/
+#mygrid {
+  display: grid;
+  grid-template-columns: 1fr 450px 1fr;
+  grid-template-areas:
+    ". header ."
+    ". et ."
+    ". to ."
+    ". tre ."
+    ". fire ."
+    ". fem ."
+    ". seks ."
+    ". kilder ."
+    ". footer ."
+    ;
+}
+/*--------------------------------------Breakpoint til tablet-------------------*/
+@media screen and (min-width: 900px) {
+  #mygrid {
+    display: grid;
+    grid-template-columns: 1fr 900px 1fr;
+    grid-template-areas:
+      ". header ."
+      ". et ."
+      ". to ."
+      ". tre ."
+      ". fire ."
+      ". fem ."
+      ". seks ."
+      ". kilder ."
+      ". footer ."
+      ;
+  }
+
+  nav {
+    bottom: unset;
+    top: 0;
+  }
+
+  header {
+    margin-top: 50px;/*Gør lidt plads til menu i toppen*/
+  }
+
+  footer {
+    margin-bottom: 5px;/*Gør mindre plads da menu er flyttet fra bunden*/
+  }
+
+  img {
+    width: 800px;
+  }
+}
+
+/*--------------------------------------Breakpoint til pc-----------------------*/
+@media screen and (min-width: 1200px) {
+  #mygrid {
+    display: grid;
+    grid-template-columns: 1fr 550px 550px 1fr;
+    grid-template-areas:
+      ". header header ."
+      ". et to ."
+      ". tre fire ."
+      ". fem seks ."
+      ". kilder kilder ."
+      ". footer footer ."
+      ;
+  }
+
+  img {
+    width: 480px;
+  }
+}
